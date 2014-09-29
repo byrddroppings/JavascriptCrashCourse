@@ -202,6 +202,24 @@ console.log(obj['## %930 $ks']);	// foo
 
 Javascript supports standard conditional statements such as [`if`](http://www.w3schools.com/js/js_if_else.asp) and [`switch`](http://www.w3schools.com/js/js_switch.asp) and iterative statements such as [`for`](http://www.w3schools.com/js/js_loop_for.asp) and [`while`](http://www.w3schools.com/js/js_loop_while.asp).
 
+**NOTE:** The **for..in** loop often confuses developers. It is designed to loop over each **property** for a given object. For example:
+
+```js 
+var obj = { fname: 'john', lname: 'doe' };
+	
+for (var prop in obj) {
+	console.log(prop);			// fname, lname
+	console.log(obj[prop]);		// john, doe}
+```
+For arrays, **for..in** iterates over the **indices** in the array:
+
+```js
+var arr = ['larry', 'moe', 'curly'];
+
+for (var index in array) {
+	console.log(index);			// 0, 1, 2
+	console.log(arr[index]);	// larry, moe, curly}
+```
 ## Types
 
 Javascript defines several native types. Some of the most common are:
@@ -276,6 +294,25 @@ console.log(sum);	// NaN
 ```
 In this case the result is `NaN` which means "not a number". This is a special value that indicates that an invalid numeric value was evaluated. In this case, the parameter `x` was assigned the value of `1`, but the value of parameter `y` was `undefined`. Adding `undefined` to `1` resulted in `NaN`. (See note on `NaN` below.)
 
+##Working with a variable number of parameters
+
+Every function has an intrinsic **arguments** variable which allows for the enumeration of the actual arguments passed to the function:
+
+```js
+function add(/* arguments */) {
+	var sum = 0;
+	
+	for (var i = 0; i < arguments.length; i++) {
+		sum += arguments[i];	}
+	
+	return sum;}
+
+console.log(add(1, 2));		// 3
+console.log(add(1, 2, 3));	// 6
+console.log(add(1));		// 1
+console.log(add(0));		// 0
+```
+
 **NOTE: NaN is weird** - consider the following:
 
 ```js
@@ -286,8 +323,6 @@ console.log(typeof NaN);	// number
 console.log(NaN === NaN);	// false
 ```
  
-We will see more advanced examples of working with a variable number of arguments, passing functions as arguments to other functions, constructing new functions at runtime, and returning functions as values of other functions in a subsequent class.
-
 **Immediately invoked functions** are functions that are execute as soon as they are defined. Since variables are scoped at the function level, this can be a useful technique for containing the scope of variables:
 
 ```js
@@ -297,4 +332,17 @@ We will see more advanced examples of working with a variable number of argument
 	x = doSomethingElse(x);
 	return x;}());		// note the () which cause the invocation
 ```
+
+A common use of an **IIF** is to enable **[strict mode](http://www.w3schools.com/js/js_strict.asp)** for a given function:
+
+```js
+(function () {
+	'use strict';
+	var x = 10;
+	x = doSomething(x);
+	x = doSomethingElse(x);
+	return x;}());		// note the () which cause the invocation
+```
+
+We will see more advanced examples of working with a variable number of arguments, passing functions as arguments to other functions, constructing new functions at runtime, and returning functions as values of other functions in a subsequent class.
 

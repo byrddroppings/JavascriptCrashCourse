@@ -19,7 +19,7 @@ We will be using a handy tool called **JS Bin** during class. If you have an act
 ## Course Outline
 
 - [Session #1: Syntax, Variables, Types, Objects, Functions](Session1.md) (available!)
-- Session #2: Scope, Closures, Prototypes, _this_, Composition (coming soon)
+- Session #2: Closures, Prototypes, _this_, Advanced Functions (coming soon)
 - Session #3: DOM, AJAX, JSON, jQuery (coming soon)
 - Session #4: Node, Express (coming soon)
 
