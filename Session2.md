@@ -90,7 +90,7 @@ bar();		// 'Mary'
 
 ## ```new``` Binding
 
-Functions may be called with the ```new``` keyword which will create a new object to be bound to ```this```. When called with ```new```, the function will automatically have a return value if ```this``` if there is no other value returned.
+Functions may be called with the ```new``` keyword which will create a new object to be bound to ```this```. When called with ```new```, the function will automatically have a return value of ```this``` if there is no other value returned.
 
 By convention, functions which are expected to be called with the ```new``` keyword should have upper-cased names (this is just a widely accepted convention, nothing in the language requires it). These are typically referred to as **constructor functions**:
 

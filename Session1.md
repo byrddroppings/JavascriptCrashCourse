@@ -272,7 +272,7 @@ function foo() {
 		return x + y;	};}
 ```
 
-**Function parameters** are be defined in a function definition, however when a function is called _any number of arguments_ can be provided.
+**Function parameters** may be defined in a function definition, however when a function is called _any number of arguments_ can be provided.
 
 Extra arguments that are not referenced in the function are simply ignored. This scenario will not cause an error, but most likely will provide unexpected results:
 
