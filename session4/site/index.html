@@ -1,0 +1,22 @@
+<html data-ng-app="myApp">
+<body data-ng-controller="myCtrl">
+<h1 data-ng-bind="model.course"></h1>
+
+<ul data-ng-repeat="student in model.students">
+	<li data-ng-bind="student"></li>
+</ul>
+
+<p>
+	<input type="text" data-ng-model="newStudent" />
+	<button data-ng-disabled="!newStudent" data-ng-click="click()">add</button>
+</p>
+
+<p>
+	<button data-ng-click="save()">save</button>
+</p>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
+
